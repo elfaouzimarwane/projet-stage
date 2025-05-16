@@ -5,6 +5,8 @@ import { FaIdCard, FaUser, FaClipboard } from 'react-icons/fa';
 const AdherentForm = () => {
   const [formData, setFormData] = useState({
     adherentNumber: '',
+    nom: '',
+    prenom: '',
     cin: '',
     visitReason: '',
   });
@@ -26,7 +28,7 @@ const AdherentForm = () => {
     setSuccess(null);
     setLoading(true);
 
-    const cinRegex = /^[A-Za-z]{1,2}\d{5,6}$/;
+    const cinRegex = /^[A-Za-z]{1,2}\d{3,6}$/;
     if (formData.cin && !cinRegex.test(formData.cin)) {
       setError('CIN invalide. Il doit commencer par une ou deux lettres et se terminer par des chiffres, pour un total de 6 caractères.');
       toast.error('CIN invalide. Il doit commencer par une ou deux lettres et se terminer par des chiffres, pour un total de 6 caractères.');
@@ -50,6 +52,8 @@ const AdherentForm = () => {
         toast.success('Visiteur ajouté avec succès');
         setFormData({
           adherentNumber: '',
+          nom: '',
+          prenom: '',
           cin: '',
           visitReason: '',
         });
@@ -88,6 +92,36 @@ const AdherentForm = () => {
                 onChange={handleChange}
                 className="mt-1 p-3 bg-gray-50 border rounded w-full focus:ring-2 focus:ring-blue-500"
                 placeholder="Entrez le numéro d'adhérent"
+              />
+            </div>
+
+            <div className="mb-6">
+              <div className="flex items-center gap-2">
+                <FaUser className="text-blue-500" />
+                <label className="block text-gray-700 mb-1">Nom</label>
+              </div>
+              <input
+                type="text"
+                name="nom"
+                value={formData.nom}
+                onChange={handleChange}
+                className="mt-1 p-3 bg-gray-50 border rounded w-full focus:ring-2 focus:ring-blue-500"
+                placeholder="Entrez le nom"
+              />
+            </div>
+
+            <div className="mb-6">
+              <div className="flex items-center gap-2">
+                <FaUser className="text-blue-500" />
+                <label className="block text-gray-700 mb-1">Prénom</label>
+              </div>
+              <input
+                type="text"
+                name="prenom"
+                value={formData.prenom}
+                onChange={handleChange}
+                className="mt-1 p-3 bg-gray-50 border rounded w-full focus:ring-2 focus:ring-blue-500"
+                placeholder="Entrez le prénom"
               />
             </div>
 

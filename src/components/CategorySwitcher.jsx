@@ -98,6 +98,8 @@ const CategorySwitcher = () => {
               <thead className="bg-gray-100">
                 <tr>
                   <th className="py-2 px-4 text-left">Numéro d'adhérent</th>
+                  <th className="py-2 px-4 text-left">Nom</th>
+                  <th className="py-2 px-4 text-left">Prénom</th>
                   <th className="py-2 px-4 text-left">CIN</th>
                   <th className="py-2 px-4 text-left">Motif de la visite</th>
                   <th className="py-2 px-4 text-left">Date d'insertion</th>
@@ -107,6 +109,8 @@ const CategorySwitcher = () => {
                 {data.map((item, index) => (
                   <tr key={index} className="border-t hover:bg-gray-50" ref={index === data.length - 1 ? lastElementCallback : null}>
                     <td className="py-2 px-4">{item.adherentNumber}</td>
+                    <td className="py-2 px-4">{item.nom}</td>
+                    <td className="py-2 px-4">{item.prenom}</td>
                     <td className="py-2 px-4">{item.cin}</td>
                     <td className="py-2 px-4">{item.visitReason}</td>
                     <td className="py-2 px-4">{new Date(item.createdAt).toLocaleString()}</td>

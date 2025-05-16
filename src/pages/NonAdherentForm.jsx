@@ -63,7 +63,7 @@ const VisiteurForm = () => {
       commune: showCustomFields && formData.customCommune ? formData.customCommune : formData.commune,
     };
 
-    const cinRegex = /^[A-Za-z]{1,2}\d{5,6}$/;
+    const cinRegex = /^[A-Za-z]{1,2}\d{3,6}$/;
     if (formData.cin && !cinRegex.test(formData.cin)) {
       setError('CIN invalide. Il doit commencer par une ou deux lettres et se terminer par des chiffres, pour un total de 6 caractères.');
       toast.error('CIN invalide. Il doit commencer par une ou deux lettres et se terminer par des chiffres, pour un total de 6 caractères.');

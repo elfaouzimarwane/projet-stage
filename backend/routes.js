@@ -70,8 +70,8 @@ router.post('/api/add-visitor', (req, res) => {
       values = [visitorData.nom, visitorData.prenom, visitorData.cin, visitorData.ppr, visitorData.phone, visitorData.region, visitorData.province, visitorData.commune];
       break;
     case 'Adherent':
-      sql = 'INSERT INTO Adherent (adherentNumber, cin, visitReason) VALUES (?, ?, ?)';
-      values = [visitorData.adherentNumber, visitorData.cin, visitorData.visitReason];
+      sql = 'INSERT INTO Adherent (adherentNumber, nom, prenom, cin, visitReason) VALUES (?, ?, ?, ?, ?)';
+      values = [visitorData.adherentNumber, visitorData.nom, visitorData.prenom, visitorData.cin, visitorData.visitReason];
       break;
     default:
       return res.status(400).json({ error: 'Invalid visitor type' });
